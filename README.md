@@ -1,24 +1,63 @@
 # Gemini Portfolio Tracker
+A Python-based command-line tool that fetches **live cryptocurrency prices** from Gemini’s public API and computes the real-time value of a crypto portfolio.
+The project emphasizes API integration, error handling, data normalization, and clean, readable output.
 
-A lightweight Python script that fetches **live crypto prices** from Gemini’s public API and calculates total portfolio value.
+## 🚀 Project Overview
+Gemini Portfolio Tracker allows users to define crypto holdings using human-friendly tickers (e.g., btc, eth, sol) and calculates the total portfolio value using live market data from Gemini.
 
+The script demonstrates how to:
+- Interact with a real-world REST API
+- Normalize user input to API-specific requirements
+- Handle network and data errors safely
+- Present financial data in a clean, formatted CLI output
+- 
 ## 💻 Features
-- Maps friendly tickers (e.g., `btc`, `eth`) to Gemini trading pairs (e.g., `btcusd`, `ethusd`)
-- Fetches real-time prices with Gemini’s `/v1/pubticker/<symbol>` endpoint
-- Handles network errors gracefully
-- Displays holdings and total value in clean, formatted output
+- Live price fetching using Gemini’s public /v1/pubticker endpoint
+- Ticker normalization (maps btc → btcusd, eth → ethusd, etc.)
+- Graceful error handling for unsupported coins and failed API calls
+- Formatted portfolio breakdown with per-asset and total value
+- Simple, extensible design for future features
 
-## ⚙️ Tech Used
+## 🧠 Design & Implementation Details
+**API Integration**
+- Uses the requests library to fetch live price data
+- Implements timeouts and HTTP status checks to avoid hanging or invalid responses
+- Parses JSON responses and converts numeric strings into floats for calculations
+
+**Symbbol Mapping**
+Gemini’s API requires explicit trading pairs (e.g., btcusd) rather than shorthand tickers (btc).
+To solve this, the project uses a centralized mapping dictionary that:
+- Normalizes user input
+- Prevents invalid API requests
+- Makes it easy to extend support for additional assets
+
+**Error Handling**
+- Unsupported tickers are skipped with a clear message.
+- Network or API errors are caught and reported without crashing the program.
+
+
+## 🛠️ Tech Stack
 - **Python 3.10+**
-- **Requests** library
+- **Requests** (HTTP client)
+- Public Gemini REST API
+- Standard library (typing, formatting utilities)
 
 ## 🧠 How to Run
-1. Clone or download this repository.
-2. Install dependencies:
-   ```bash
+1. Clone this repository:
+   git clone https://github.com/yourusername/gemini-portfolio-tracker
+   cd gemini-portfolio-tracker
+
+3. Install dependencies:
    pip install requests
-3. Edit holdings inside PORTFOLIO in gemini_portfolio.py
-4. Run: 
+   
+5. Edit holdings inside PORTFOLIO in gemini_portfolio.py
+   portfolio = {
+    "btc": 0.10,
+    "eth": 0.50,
+    "sol": 3.00
+}
+
+7. Run the script: 
    python gemini_portfolio.py
 
 🧾 Example Output:
@@ -31,15 +70,13 @@ Your Crypto Portfolio (Gemini)
 --------------------------------
 Total value: $14,157.88
 
-📈 Future Improvements
+## 📈 Future Improvements
+- Command-line input for dynamic portfolio entries
+- Export portfolia data to CSV or JSON
+- Flask or Streamlit dashboard for visualization
+- Support for additional exchanges
 
-Command-line input for dynamic holdings
-
-Export to CSV or JSON
-
-Flask dashboard or chart visualization
-
-👩‍💻 Author
+## 👩‍💻 Author
 
 Chaya M. Goldstein
 Computer Science Major @ Touro University
