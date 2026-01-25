@@ -16,7 +16,7 @@ GEMINI_SYMBOLS: Dict[str, str] = {
     "dogecoin": "dogeusd",
     "doge": "dogeusd",
     "litecoin": "ltcusd",
-    "ltc": "ltusd",
+    "ltc": "ltcusd",
     "bitcoin cash": "bchusd",
     "bch": "bchusd",
     }
@@ -81,3 +81,4 @@ if __name__ == "__main__":
 
 
     
+
