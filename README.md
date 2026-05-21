@@ -72,7 +72,7 @@ Total value: $14,157.88
 
 ## 📈 Future Improvements
 - Command-line input for dynamic portfolio entries
-- Export portfolia data to CSV or JSON
+- Export portfolio data to CSV or JSON
 - Flask or Streamlit dashboard for visualization
 - Support for additional exchanges
 
