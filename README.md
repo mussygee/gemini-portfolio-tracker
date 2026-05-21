@@ -24,7 +24,7 @@ The script demonstrates how to:
 - Implements timeouts and HTTP status checks to avoid hanging or invalid responses
 - Parses JSON responses and converts numeric strings into floats for calculations
 
-**Symbbol Mapping**
+**Symbol Mapping**
 Gemini’s API requires explicit trading pairs (e.g., btcusd) rather than shorthand tickers (btc).
 To solve this, the project uses a centralized mapping dictionary that:
 - Normalizes user input
